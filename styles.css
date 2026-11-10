@@ -440,3 +440,24 @@
 @keyframes nav-panel-in{from{opacity:0;transform:translateY(-9px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
 
 @media(max-width:760px){.case-prev,.case-next{font-size:0!important;display:grid;place-items:center}.case-prev:after,.case-next:after{content:"";display:block;width:15px;height:15px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15m-6-6 6 6-6 6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15m-6-6 6 6-6 6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}.case-prev:after{transform:rotate(180deg)}}
+
+/* Replace legacy glyph arrows with one crisp vector icon and center it precisely */
+:root{--zva-arrow-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15m-6-6 6 6-6 6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.header-phone b,.nav-cta span,.button b,.tool-group label b,.submit-button b,.service-card-link b,.service-action b,.team-link span,.contact-submit span,.footer-cta .mobile-arrow,.service-modal-submit b,.case-result-arrow,.case-prev,.case-next,.service-card-arrow{position:relative;display:inline-grid;place-items:center;flex:none;font-size:0!important;line-height:0!important;text-indent:0;vertical-align:middle}
+.header-phone b,.nav-cta span,.button b,.tool-group label b,.submit-button b,.service-card-link b,.service-action b,.team-link span,.contact-submit span,.footer-cta .mobile-arrow,.service-modal-submit b,.case-prev,.case-next{overflow:hidden}
+.header-phone b:after,.nav-cta span:after,.button b:after,.tool-group label b:after,.submit-button b:after,.service-card-link b:after,.service-action b:after,.team-link span:after,.contact-submit span:after,.footer-cta .mobile-arrow:after,.service-modal-submit b:after,.case-result-arrow:after,.case-prev:after,.case-next:after,.service-card-arrow:after{content:"";position:absolute;inset:0;margin:auto;width:14px;height:14px;background:currentColor;-webkit-mask:var(--zva-arrow-mask) center/contain no-repeat;mask:var(--zva-arrow-mask) center/contain no-repeat}
+.header-phone b{width:25px;height:25px;border-radius:50%;margin-left:2px}
+.header-phone:hover b{transform:none}
+.nav-cta span{width:24px;height:24px;margin-left:10px;border-radius:50%;background:#10150f16}
+.button b,.service-card-link b,.team-link span,.contact-submit span,.footer-cta .mobile-arrow,.service-modal-submit b{width:28px;height:28px;margin-left:10px;border-radius:50%;background:#10150f16}
+.submit-button b{width:28px;height:28px;margin-left:12px;border-radius:50%;background:#10150f;color:#c4ff32;float:right}
+.tool-group label b{width:30px;height:30px;margin-left:auto;border-radius:50%;background:#dce8d2;color:#3b7d23}
+.service-action b{width:34px;height:34px;margin-left:14px;border-radius:50%}
+.case-result-arrow{width:48px;height:48px}
+.case-result-arrow:after{width:36px;height:36px}
+.case-prev,.case-next{width:46px;height:46px}
+.case-prev:after{transform:rotate(180deg)}
+.case-next:after{transform:none}
+.service-card-arrow{width:42px;height:42px}
+.service-card-arrow:after{width:28px;height:28px}
+@media(max-width:760px){.header-phone b{width:22px;height:22px}.nav-cta span{width:22px;height:22px}.button b,.service-card-link b,.team-link span,.contact-submit span,.footer-cta .mobile-arrow,.service-modal-submit b{width:24px;height:24px}.tool-group label b{width:30px;height:30px}.service-action b{width:34px;height:34px}.case-prev,.case-next{width:42px;height:42px}}
