@@ -397,3 +397,44 @@
 .header-phone b{width:22px;height:22px}
 .button b:after,.nav-cta span:after,.submit-button b:after,.service-action b:after,.contact-submit span:after,.service-page-cta .button b:after,.service-modal-submit b:after,.footer-cta .mobile-arrow:after,.header-phone b:after,.team-link span:after{content:"";display:block;width:13px;height:13px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15m-6-6 6 6-6 6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15m-6-6 6 6-6 6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
 }
+
+/* Mobile footer: clear hierarchy and a predictable reading order */
+@media(max-width:760px){
+.site-footer{padding:42px 22px 22px}
+.footer-main{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:26px 22px;margin-bottom:26px}
+.footer-identity{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:14px 18px;padding-bottom:21px;border-bottom:1px solid #ffffff26}
+.footer-identity p{max-width:none;margin:0;font-size:13px;line-height:1.5}
+.footer-nav{display:grid;align-content:start;gap:9px}
+.footer-nav strong,.footer-contact strong{margin:0 0 4px;font-size:10px;letter-spacing:.13em;color:#c4ff32}
+.footer-nav a{font-size:13px;line-height:1.4}
+.footer-contact{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr);gap:10px;padding-top:22px;border-top:1px solid #ffffff26}
+.footer-contact>span{max-width:none;font-size:13px;line-height:1.45}
+.footer-contact .footer-phone{display:grid;gap:4px;margin-top:2px;padding:12px 14px;border:1px solid #ffffff26;border-radius:9px;background:#ffffff08}
+.footer-contact .footer-phone small{font-size:9px}
+.footer-contact .footer-phone b{font-size:18px}
+.footer-contact .footer-cta{justify-self:start;display:inline-flex;align-items:center;min-height:44px;margin-top:2px;padding:11px 14px;font-size:13px}
+.footer-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px 14px;padding-top:17px;font-size:11px;line-height:1.4}
+.footer-bottom span:first-child{grid-column:1;grid-row:1}
+.footer-bottom>a{grid-column:2;grid-row:1}
+.footer-bottom span:nth-child(2){display:block;grid-column:1/-1;grid-row:2;color:#9eaa9a;font-size:10px}
+}
+@media(max-width:420px){.footer-main{gap:23px 14px}.footer-nav a{font-size:12px}.footer-identity{gap:10px 13px}.footer-identity p{font-size:12px}.footer-contact .footer-phone b{font-size:16px}}
+
+/* Mobile navigation: layered panel, numbered links and animated menu control */
+@media(max-width:760px){
+.main-nav{top:calc(100% + 8px);left:14px;right:14px;display:none;padding:16px 16px 18px;border:1px solid #c4ff3260;border-radius:16px;background:linear-gradient(145deg,#172119 0%,#0c130d 72%);box-shadow:0 18px 48px #0009,0 0 28px #c4ff3214;z-index:30;overflow:hidden}
+.main-nav.open{display:flex;animation:nav-panel-in .24s cubic-bezier(.2,.8,.2,1) both}
+.main-nav:before{content:"НАВИГАЦИЯ · ZVA DIGITAL";display:block;padding:1px 7px 12px;color:#c4ff32;font:900 9px var(--mono);letter-spacing:.16em}
+.main-nav{counter-reset:mobile-nav}
+.main-nav>a:not(.nav-cta){counter-increment:mobile-nav;display:flex;align-items:center;gap:14px;min-height:54px;padding:10px 7px;border-bottom:1px solid #ffffff1a;color:#f4f7ef;font-size:19px;font-weight:850;letter-spacing:-.025em;transition:color .18s,background .18s,padding .18s}
+.main-nav>a:not(.nav-cta):before{content:"0" counter(mobile-nav);color:#b7ed37;font:800 10px var(--mono);letter-spacing:.04em}
+.main-nav>a:not(.nav-cta):hover{padding-left:12px;color:#c4ff32;background:#ffffff08}
+.main-nav .nav-cta{display:flex;align-items:center;justify-content:space-between;min-height:52px;margin-top:14px;padding:13px 15px;border-radius:9px;font-size:14px}
+.menu-toggle{border-radius:11px;background:#ffffff08;transition:background .2s,border-color .2s,transform .2s}
+.menu-toggle span{transition:transform .22s cubic-bezier(.2,.8,.2,1),background .2s,width .2s}
+.menu-toggle[aria-expanded="true"]{background:#c4ff32;border-color:#c4ff32;transform:rotate(2deg)}
+.menu-toggle[aria-expanded="true"] span{width:19px;background:#10150f}
+.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+}
+@keyframes nav-panel-in{from{opacity:0;transform:translateY(-9px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
