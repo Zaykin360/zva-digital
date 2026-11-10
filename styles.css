@@ -325,3 +325,22 @@
 .service-visual-column .service-action:hover{transform:translateY(-3px);box-shadow:0 8px 0 #0b100c,0 16px 28px #10150f36,inset 0 1px 0 #ffffff40}
 .service-visual-column .service-action:active{transform:translateY(1px);box-shadow:0 2px 0 #0b100c,0 5px 12px #10150f28}
 @media(max-width:760px){.service-visual-column .service-action{width:min(100%,360px);min-width:0}}
+
+/* Make the featured project read as its own case card */
+.case-section-intro{margin-bottom:48px;padding-bottom:38px}
+.case-section-intro h2{max-width:760px}
+.case-slider{position:relative}
+.case-shell{position:relative;padding:clamp(24px,4vw,52px);border:1px solid #ffffff70;border-top:8px solid #c4ff32;border-radius:26px;background:#f1f5e9;color:#10150f;box-shadow:15px 15px 0 #c4ff32}
+.case-topline{color:#345f22;border-color:#18251a35}
+.case-heading-row{padding:38px 0 34px;gap:46px}
+.case-kicker{background:#dfff94;color:#27481b;border:1px solid #6e9a3538;border-radius:4px}
+.case-heading-row h2{color:#111811;text-shadow:0 3px 0 #c4ff3270}
+.case-lead{color:#3f4c3a}
+.case-phase{border-color:#aeb9a8}
+.case-phase>div>small{color:#4b802d}
+.case-phase h3{color:#10150f}
+.case-phase p{color:#4a5546}
+.case-phase>b small{color:#53604f}
+.case-story .case-privacy{color:#697463}
+@media(max-width:900px){.case-heading-row{gap:23px}}
+@media(max-width:760px){.case-section-intro{margin-bottom:32px}.case-shell{padding:22px 18px;border-radius:18px;box-shadow:8px 8px 0 #c4ff32}.case-heading-row{padding:27px 0 25px}.case-heading-row h2{font-size:clamp(52px,11vw,78px)}.case-lead{font-size:16px}.case-topline{border-color:#18251a35}}
