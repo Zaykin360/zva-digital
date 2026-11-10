@@ -387,3 +387,13 @@
 
 @media(min-width:761px) and (max-width:1000px){.header-contact{gap:8px;margin-right:8px}.header-contact-info span{max-width:165px;white-space:normal;font-size:9px;line-height:1.25}.header-contact-info small{font-size:8px}.header-phone{gap:5px;padding:7px}.header-phone strong{font-size:12px}.main-nav{gap:11px;font-size:12px}.nav-cta{padding:10px 11px}}
 @media(max-width:760px){.main-nav{top:112px}}
+
+/* Modern mobile CTA arrows: crisp directional stroke instead of the legacy font glyph */
+@media(max-width:760px){
+.button b,.nav-cta span,.submit-button b,.service-action b,.contact-submit span,.service-page-cta .button b,.service-modal-submit b,.footer-cta .mobile-arrow,.header-phone b,.team-link span{font-size:0!important;line-height:0!important;display:inline-grid;place-items:center;flex-shrink:0}
+.button b,.nav-cta span,.contact-submit span,.service-page-cta .button b,.service-modal-submit b,.footer-cta .mobile-arrow,.team-link span{width:22px;height:22px;margin-left:10px}
+.submit-button b{width:24px;height:24px}
+.service-action b{width:34px;height:34px}
+.header-phone b{width:22px;height:22px}
+.button b:after,.nav-cta span:after,.submit-button b:after,.service-action b:after,.contact-submit span:after,.service-page-cta .button b:after,.service-modal-submit b:after,.footer-cta .mobile-arrow:after,.header-phone b:after,.team-link span:after{content:"";display:block;width:13px;height:13px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15m-6-6 6 6-6 6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 12h15m-6-6 6 6-6 6' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+}
