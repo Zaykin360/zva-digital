@@ -3,6 +3,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
+      - main
       - feat/agency-landing-page
   workflow_dispatch:
 
