@@ -45,8 +45,8 @@ toolInputs.forEach((input) => input.addEventListener('change', updateRoute));
 updateRoute();
 document.querySelectorAll('form').forEach((form) => form.addEventListener('submit', (event) => {
   event.preventDefault();
-  const note = form.querySelector('.form-note, .contact-note');
-  if (note) note.textContent = 'Спасибо! Это предпросмотр: отправка заявок ещё не подключена.';
+  const note = form.querySelector('.form-note, .contact-note, .service-modal-note');
+  if (note) note.textContent = 'Спасибо! Это предпросмотр: заявка не отправлена. Подключим канал связи отдельно.';
 }));
 const year = document.querySelector('#year');
 if (year) year.textContent = String(new Date().getFullYear());
