@@ -167,3 +167,41 @@
 .footer-bottom>a{margin-left:auto;color:#d8e0d5;font-weight:800;text-decoration:none}
 @media(max-width:900px){.footer-main{grid-template-columns:repeat(3,1fr);gap:30px}.footer-identity{grid-column:span 3}.footer-identity p{max-width:430px}.site-footer{padding-top:42px}}
 @media(max-width:560px){.site-footer{padding:38px 22px 20px}.footer-main{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 20px}.footer-identity{grid-column:span 2}.footer-bottom{align-items:flex-start;flex-wrap:wrap;gap:10px 18px}.footer-bottom>a{margin-left:auto}.footer-bottom span:nth-child(2){display:none}}
+
+
+/* Stretch the services infographic field to the viewport edges */
+.services-section{width:100%;max-width:none;margin:0;padding:116px max(5.5%,calc((100% - 1320px)/2))}
+.services-section .section-lead,.services-section .service-cards{width:100%;max-width:1320px;margin-left:auto;margin-right:auto}
+/* Temporary phone contact in the header */
+.header-phone{display:grid;gap:4px;flex:0 0 auto;color:#fff;text-decoration:none}
+.header-phone small{color:var(--accent);font:800 9px var(--mono);letter-spacing:.12em}
+.header-phone strong{font-size:14px;white-space:nowrap;letter-spacing:.01em}
+.header-phone:hover strong{color:var(--accent)}
+/* Large map-style project route and contact panel */
+.contact-map-section{position:relative;overflow:hidden;padding:94px max(5.5%,calc((100% - 1320px)/2));background:#c4ff32;color:#10150f}
+.contact-map-section:before{content:"";position:absolute;right:-140px;top:-240px;width:600px;height:600px;border:1px solid #24451d27;border-radius:50%;box-shadow:0 0 0 35px #24451d0a,0 0 0 78px #24451d08;pointer-events:none}
+.contact-map-inner{position:relative;z-index:1;max-width:1320px;margin:auto;display:grid;grid-template-columns:minmax(330px,.78fr) minmax(0,1.22fr);gap:clamp(40px,7vw,100px);align-items:center}
+.contact-map-copy .section-kicker{color:#355c22}
+.contact-map-copy h2{margin:0;font-size:clamp(50px,6vw,82px);line-height:.92;letter-spacing:-.075em;font-weight:950;text-shadow:0 4px 0 #10150f12}
+.contact-map-copy h2 em{font-style:normal;color:#315d1c}
+.contact-map-copy>p:not(.section-kicker){max-width:440px;margin:24px 0 30px;color:#30402b;font-size:18px;line-height:1.55}
+.map-phone{width:max-content;max-width:100%;display:grid;gap:7px;padding:17px 20px;background:#101a13;color:#fff;text-decoration:none;box-shadow:7px 7px 0 #75a82a}
+.map-phone small{color:#c4ff32;font:800 10px var(--mono);letter-spacing:.12em}
+.map-phone strong{font-size:clamp(18px,2vw,24px);letter-spacing:-.03em}
+.map-phone span{margin-top:4px;color:#d3dfcf;font-size:13px;font-weight:800}
+.map-contact-link{display:block;width:max-content;max-width:100%;margin-top:19px;color:#20371d;font-size:13px;font-weight:900;text-decoration-thickness:1px;text-underline-offset:5px}
+.contact-map-visual{position:relative;min-width:0}
+.contact-map-art{display:block;width:100%;height:auto;min-height:360px;max-height:530px;object-fit:cover;border-radius:24px;box-shadow:18px 20px 0 #101a1325}
+.map-legend{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:22px 4px 0;color:#23351e;font:800 10px var(--mono);letter-spacing:.1em}
+.map-legend span{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.map-legend i{width:9px;height:9px;border-radius:50%;background:#ff9b46;box-shadow:0 0 0 5px #ff9b4633}
+.map-legend span:last-child i{background:#2438ed;box-shadow:0 0 0 5px #2438ed30}
+.map-legend b{color:#55733e}
+.header-phone:focus-visible,.map-phone:focus-visible,.map-contact-link:focus-visible{outline:3px solid #7450cc;outline-offset:4px}
+.footer-phone{display:grid;gap:5px;color:#fff;text-decoration:none}
+.footer-phone small{color:#c4ff32;font:800 9px var(--mono);letter-spacing:.1em}
+.footer-phone b{font-size:16px;white-space:nowrap}
+@media(max-width:1100px){.site-header{gap:18px}.header-phone strong{font-size:12px}.main-nav{gap:20px}.main-nav>a{white-space:nowrap}}
+@media(max-width:900px){.contact-map-inner{grid-template-columns:1fr;gap:38px}.contact-map-copy{max-width:660px}.contact-map-visual{max-width:850px}.contact-map-art{min-height:0}}
+@media(max-width:760px){.services-section{padding:78px 22px}.site-header{gap:12px}.header-phone{margin-left:auto}.header-phone small{display:none}.header-phone strong{font-size:12px}.main-nav.open .header-phone{display:none}.contact-map-section{padding:68px 22px}.contact-map-inner{gap:32px}.contact-map-copy h2{font-size:clamp(48px,11vw,68px)}.contact-map-copy>p:not(.section-kicker){font-size:16px}.contact-map-art{border-radius:17px;box-shadow:9px 10px 0 #101a1325}.map-legend{font-size:8px;letter-spacing:.06em}}
+@media(max-width:390px){.header-phone strong{font-size:10px}.site-header{gap:8px}.contact-map-section{padding-inline:18px}.map-legend{gap:7px}.map-legend b{font-size:8px}}
