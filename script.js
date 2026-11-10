@@ -50,3 +50,14 @@ document.querySelectorAll('form').forEach((form) => form.addEventListener('submi
 }));
 const year = document.querySelector('#year');
 if (year) year.textContent = String(new Date().getFullYear());
+
+const serviceModal = document.querySelector('#service-modal');
+const modalForm = document.querySelector('#service-modal-form');
+let lastServiceTrigger = null;
+function closeServiceModal() { if(!serviceModal)return; serviceModal.hidden=true; document.body.classList.remove('modal-open'); lastServiceTrigger?.focus(); }
+document.querySelectorAll('.service-action').forEach(button=>button.addEventListener('click',()=>{if(!serviceModal)return;lastServiceTrigger=button;const service=button.dataset.service||'Услуга';if(modalForm?.elements.service)modalForm.elements.service.value=service;const title=document.querySelector('#service-modal-title');if(title)title.textContent='Обсудим: '+service;serviceModal.hidden=false;document.body.classList.add('modal-open');modalForm?.elements.name?.focus();}));
+serviceModal?.querySelectorAll('[data-modal-close]').forEach(button=>button.addEventListener('click',closeServiceModal));
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&serviceModal&&!serviceModal.hidden)closeServiceModal();});
+const caseSlides=[...document.querySelectorAll('.case-slide')],caseDots=[...document.querySelectorAll('.case-dots [data-slide]')];let caseIndex=0;
+function showCase(index){if(!caseSlides.length)return;caseIndex=(index+caseSlides.length)%caseSlides.length;caseSlides.forEach((slide,i)=>{slide.hidden=i!==caseIndex;slide.classList.toggle('is-active',i===caseIndex);});caseDots.forEach((dot,i)=>{dot.classList.toggle('is-active',i===caseIndex);dot.setAttribute('aria-current',String(i===caseIndex));});const counter=document.querySelector('.case-counter');if(counter)counter.innerHTML=String(caseIndex+1).padStart(2,'0')+' <i>/</i> '+String(caseSlides.length).padStart(2,'0');}
+document.querySelector('.case-prev')?.addEventListener('click',()=>showCase(caseIndex-1));document.querySelector('.case-next')?.addEventListener('click',()=>showCase(caseIndex+1));caseDots.forEach(dot=>dot.addEventListener('click',()=>showCase(Number(dot.dataset.slide))));
