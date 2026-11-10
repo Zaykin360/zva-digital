@@ -461,3 +461,5 @@
 .service-card-arrow{width:42px;height:42px}
 .service-card-arrow:after{width:28px;height:28px}
 @media(max-width:760px){.header-phone b{width:22px;height:22px}.nav-cta span{width:22px;height:22px}.button b,.service-card-link b,.team-link span,.contact-submit span,.footer-cta .mobile-arrow,.service-modal-submit b{width:24px;height:24px}.tool-group label b{width:30px;height:30px}.service-action b{width:34px;height:34px}.case-prev,.case-next{width:42px;height:42px}}
+
+.external-arrow{position:relative;display:inline-grid;place-items:center;vertical-align:middle;width:20px;height:20px;margin-left:4px;font-size:0!important;line-height:0!important}.external-arrow:after{content:"";position:absolute;inset:0;margin:auto;width:13px;height:13px;background:currentColor;-webkit-mask:var(--zva-arrow-mask) center/contain no-repeat;mask:var(--zva-arrow-mask) center/contain no-repeat}.external-arrow-up:after{transform:rotate(-90deg)}.external-arrow-left:after{transform:rotate(180deg)}
