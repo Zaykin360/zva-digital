@@ -512,3 +512,35 @@ body.modal-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){.service-modal-backdrop,.service-modal-dialog{animation:none}}
 
 .modal-optional{display:inline;margin-left:4px;color:#788275;font-weight:500}
+
+/* Service aware modal visuals: every entry point gets a relevant diagram and accent. */
+.modal-story{--story-accent:#c4ff32}
+.modal-story[data-visual="direct"]{--story-accent:#ffb431;background:#11183b}
+.modal-story[data-visual="seo"]{--story-accent:#dbff61;background:#21163d}
+.modal-story[data-visual="crm"]{--story-accent:#6fe0ae;background:#10271e}
+.modal-story[data-visual="conversion"]{--story-accent:#ff9b78;background:#351a17}
+.modal-story[data-visual="sites"]{--story-accent:#c4ff32;background:#10190f}
+.modal-story[data-visual="system"]{--story-accent:#c4ff32;background:#10190f}
+.modal-story:before{background:radial-gradient(circle at 100% 0%,color-mix(in srgb,var(--story-accent) 19%,transparent),transparent 38%),linear-gradient(135deg,transparent 65%,color-mix(in srgb,var(--story-accent) 6%,transparent))}
+.modal-story:after{border-color:color-mix(in srgb,var(--story-accent) 28%,transparent);box-shadow:0 0 0 24px color-mix(in srgb,var(--story-accent) 5%,transparent),0 0 0 50px color-mix(in srgb,var(--story-accent) 4%,transparent)}
+.modal-story-kicker,.modal-steps li>b,.modal-story-copy h3 em{color:var(--story-accent)}
+.modal-story-bottom:before{background:var(--story-accent)}
+.modal-visual{position:relative;z-index:1;display:grid;place-items:center;height:154px;margin:22px 0 0;padding:8px;border:1px solid color-mix(in srgb,var(--story-accent) 34%,transparent);border-radius:15px;background:color-mix(in srgb,var(--story-accent) 8%,#fff 2%);box-shadow:inset 0 1px 0 #ffffff20;overflow:hidden}
+.modal-visual:before{position:absolute;inset:0;content:"";background:linear-gradient(135deg,#ffffff0b,transparent 55%);pointer-events:none}
+.modal-visual svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 9px 16px #0003);animation:modal-art-arrive .5s cubic-bezier(.2,.8,.2,1) both}
+.modal-story-copy{padding-top:23px}
+.modal-story-copy h3{font-size:clamp(33px,3.8vw,48px)}
+.modal-story-copy>p{margin-top:13px;font-size:14px}
+.modal-steps{margin-top:17px}
+.modal-steps li{padding:10px 0}
+.service-modal-submit{gap:18px}
+@keyframes modal-art-arrive{from{opacity:0;transform:translateY(9px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:720px){
+ .modal-visual{height:112px;margin-top:14px;padding:5px}
+ .modal-story-copy{padding:15px 38px 10px 0}
+ .modal-story-copy h3{font-size:clamp(28px,7vw,37px)}
+ .modal-story-copy>p{font-size:12px}
+ .modal-steps{margin-top:11px}
+ .modal-steps li{padding-top:8px}
+}
+@media(prefers-reduced-motion:reduce){.modal-visual svg{animation:none}}
