@@ -53,11 +53,53 @@ if (year) year.textContent = String(new Date().getFullYear());
 
 const serviceModal = document.querySelector('#service-modal');
 const modalForm = document.querySelector('#service-modal-form');
+const modalService = modalForm?.elements.service;
+const modalTitle = document.querySelector('#service-modal-title');
+const modalIntro = document.querySelector('.service-modal-intro');
+const modalNote = document.querySelector('.service-modal-note');
 let lastServiceTrigger = null;
-function closeServiceModal() { if(!serviceModal)return; serviceModal.hidden=true; document.body.classList.remove('modal-open'); lastServiceTrigger?.focus(); }
-document.querySelectorAll('.service-action').forEach(button=>button.addEventListener('click',()=>{if(!serviceModal)return;lastServiceTrigger=button;const service=button.dataset.service||'Услуга';if(modalForm?.elements.service)modalForm.elements.service.value=service;const title=document.querySelector('#service-modal-title');if(title)title.textContent='Обсудим: '+service;serviceModal.hidden=false;document.body.classList.add('modal-open');modalForm?.elements.name?.focus();}));
-serviceModal?.querySelectorAll('[data-modal-close]').forEach(button=>button.addEventListener('click',closeServiceModal));
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&serviceModal&&!serviceModal.hidden)closeServiceModal();});
+const modalCopy = {
+  'Сайты': ['Обсудим создание сайта', 'Соберём вводные по проекту, чтобы разговор был предметным.'],
+  'Контекстная реклама': ['Обсудим Яндекс Директ', 'Разберём предложение, аудиторию и задачи рекламного запуска.'],
+  'SEO-продвижение': ['Обсудим SEO-продвижение', 'Уточним нишу, географию и цели продвижения.'],
+  'CRM-системы': ['Разберём обработку заявок', 'Поговорим о текущем процессе и о том, где теряются обращения.'],
+  'Рост конверсии': ['Найдём точки роста сайта', 'Посмотрим, что мешает посетителям сделать следующий шаг.']
+};
+function openServiceModal(trigger) {
+  if (!serviceModal) return;
+  lastServiceTrigger = trigger;
+  const service = trigger?.dataset.service || trigger?.dataset.modalService || '';
+  if (modalService) modalService.value = service;
+  const copy = modalCopy[service];
+  if (modalTitle) modalTitle.textContent = copy?.[0] || 'С чего начнём?';
+  if (modalIntro) modalIntro.textContent = copy?.[1] || 'Выберите направление и оставьте контакт — подготовим разговор по вашей задаче.';
+  if (modalNote) modalNote.textContent = 'Форма пока демонстрационная: после согласования канала подключим отправку на почту или в Telegram.';
+  serviceModal.hidden = false;
+  document.body.classList.add('modal-open');
+  (service ? modalForm?.elements.name : modalService)?.focus();
+}
+function closeServiceModal() {
+  if (!serviceModal) return;
+  serviceModal.hidden = true;
+  document.body.classList.remove('modal-open');
+  lastServiceTrigger?.focus();
+}
+document.querySelectorAll('.service-action, [data-open-modal]').forEach(button => button.addEventListener('click', event => {
+  event.preventDefault();
+  openServiceModal(button);
+}));
+serviceModal?.querySelectorAll('[data-modal-close]').forEach(button => button.addEventListener('click', closeServiceModal));
+document.addEventListener('keydown', event => {
+  if (!serviceModal || serviceModal.hidden) return;
+  if (event.key === 'Escape') closeServiceModal();
+  if (event.key === 'Tab') {
+    const focusable = [...serviceModal.querySelectorAll('button:not([disabled]), input:not([type="hidden"]):not([disabled]), select:not([disabled]), a[href]')].filter(el => el.offsetParent !== null);
+    if (!focusable.length) return;
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  }
+});
 const caseSlides=[...document.querySelectorAll('.case-slide')],caseDots=[...document.querySelectorAll('.case-dots [data-slide]')];let caseIndex=0;
 function showCase(index){if(!caseSlides.length)return;caseIndex=(index+caseSlides.length)%caseSlides.length;caseSlides.forEach((slide,i)=>{slide.hidden=i!==caseIndex;slide.classList.toggle('is-active',i===caseIndex);});caseDots.forEach((dot,i)=>{dot.classList.toggle('is-active',i===caseIndex);dot.setAttribute('aria-current',String(i===caseIndex));});const counter=document.querySelector('.case-counter');if(counter)counter.innerHTML=String(caseIndex+1).padStart(2,'0')+' <i>/</i> '+String(caseSlides.length).padStart(2,'0');}
 document.querySelector('.case-prev')?.addEventListener('click',()=>showCase(caseIndex-1));document.querySelector('.case-next')?.addEventListener('click',()=>showCase(caseIndex+1));caseDots.forEach(dot=>dot.addEventListener('click',()=>showCase(Number(dot.dataset.slide))));
