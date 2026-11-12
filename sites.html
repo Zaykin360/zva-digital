@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261112-1">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261112-2">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c130d">
   <meta name="description" content="Разработка корпоративных сайтов, лендингов и интернет-магазинов: от структуры и дизайна до запуска.">
@@ -11,8 +11,8 @@
   <meta property="og:description" content="Разработка корпоративных сайтов, лендингов и интернет-магазинов: от структуры и дизайна до запуска.">
   <meta property="og:type" content="website">
   <title>Создание сайтов — ZVA Digital</title>
-  <link rel="stylesheet" href="/styles.css?v=20261112-1">
-  <script src="/script.js?v=20261112-1" defer></script>
+  <link rel="stylesheet" href="/styles.css?v=20261112-2">
+  <script src="/script.js?v=20261112-2" defer></script>
 </head>
 <body>
   <header class="site-header"><a class="brand" href="/" aria-label="ZVA Digital — на главную"><strong>ZVA<span>.</span></strong><small>DIGITAL</small></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Открыть меню"><span></span><span></span></button><nav class="main-nav" id="main-nav" aria-label="Основная навигация"><a href="/#services">Направления</a><a href="/#case">Кейс</a><a href="/#team">Команда</a><a class="nav-cta" href="#contact" data-open-modal>Обсудить проект <span>↗</span></a></nav></header>
@@ -30,24 +30,25 @@
   <div class="service-modal" id="service-modal" hidden>
     <button class="service-modal-backdrop" type="button" aria-label="Закрыть окно" data-modal-close></button>
     <section class="service-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="service-modal-title" aria-describedby="service-modal-intro">
-      <div class="modal-story">
-        <p class="modal-story-kicker">ZVA DIGITAL / РАБОЧАЯ СТРАТЕГИЯ</p>
+      <div class="modal-story" data-visual="system">
+        <p class="modal-story-kicker">ZVA DIGITAL / ПРОЕКТНАЯ СИСТЕМА</p>
+        <div class="modal-visual" id="modal-visual" aria-hidden="true"></div>
         <div class="modal-story-copy">
-          <h3>Сначала разберёмся.<br><em>Потом предложим.</em></h3>
-          <p>Не отправляем шаблонные решения. Поймём контекст бизнеса и определим, с какого шага разумнее начать.</p>
+          <h3 id="modal-story-title">Маркетинг,<br><em>собранный в систему.</em></h3>
+          <p id="modal-story-description">Свяжем сайт, привлечение трафика и обработку обращений в одну рабочую систему.</p>
           <ol class="modal-steps">
-            <li><b>01</b><span><strong>Контекст</strong>Уточним цель и ситуацию.</span></li>
-            <li><b>02</b><span><strong>Приоритет</strong>Найдём главный рычаг роста.</span></li>
+            <li><b>01</b><span><strong>Контекст</strong>Уточним цель и исходные данные.</span></li>
+            <li><b>02</b><span><strong>Приоритет</strong>Выберем главный рычаг роста.</span></li>
             <li><b>03</b><span><strong>План</strong>Согласуем следующий шаг.</span></li>
           </ol>
         </div>
-        <div class="modal-story-bottom">ЗАДАЧА → ПРИОРИТЕТ → СИСТЕМА</div>
+        <div class="modal-story-bottom" id="modal-story-bottom">ЗАДАЧА → ПРИОРИТЕТ → СИСТЕМА</div>
       </div>
       <div class="modal-form-column">
         <button class="service-modal-close" type="button" aria-label="Закрыть форму" data-modal-close>×</button>
         <p class="section-kicker">КОРОТКИЙ БРИФ · 1 МИНУТА</p>
         <h2 id="service-modal-title">С чего начнём?</h2>
-        <p class="service-modal-intro" id="service-modal-intro">Выберите направление и оставьте контакт — подготовим разговор по вашей задаче.</p>
+        <p class="service-modal-intro" id="service-modal-intro">Выберите направление и оставьте контакт — уточним задачу и предложим подходящий следующий шаг.</p>
         <form class="service-modal-form" id="service-modal-form">
           <label class="modal-field--wide">Направление
             <select name="service" required>
@@ -69,7 +70,7 @@
           <label class="modal-field--wide">Сайт компании <span class="modal-optional">если уже есть</span>
             <input name="site" autocomplete="url" placeholder="вашсайт.ru">
           </label>
-          <button class="service-modal-submit" type="submit">Подготовить разговор <b aria-hidden="true">→</b></button>
+          <button class="service-modal-submit" type="submit"><span id="service-modal-submit-label">Оставить заявку</span> <b aria-hidden="true">→</b></button>
           <p class="service-modal-note" aria-live="polite">Форма пока демонстрационная: после согласования канала подключим отправку на почту или в Telegram.</p>
         </form>
       </div>
